@@ -1,0 +1,6 @@
+#import * from 'schema.graphql'
+#import * from 'query.graphql'
+
+type Default {
+  _empty: String
+}

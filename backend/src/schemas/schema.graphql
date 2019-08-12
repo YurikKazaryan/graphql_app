@@ -1,0 +1,51 @@
+scalar DateTime
+
+enum AUTH_TYPE {
+  STANDART
+  LDAP
+}
+
+enum Role {
+  GUEST
+  ADMIN
+  SCHOOL
+  REPORT
+  RESEARCH
+  CONSTRUCT
+  RESPONDENT
+}
+
+type User {
+  id: ID!
+  username: String!
+  password: String!
+  createdAt: DateTime
+  authType: AUTH_TYPE!
+  role: Role!
+  organization: Organization!
+}
+
+type Municipality {
+  id: ID!
+  name: String!
+  region: Region!
+}
+
+type Region {
+  id: ID!
+  name: String!
+  municipality: [Municipality!]
+}
+
+type Organization {
+  id: ID!
+  shortName: String!
+  fullName: String!
+  municipality: Municipality!
+  user: [User!]
+}
+
+type AuthPayload {
+  token: String
+  user: User
+}
