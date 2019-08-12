@@ -3,3 +3,7 @@
 type Query {
   users: [User!]
 }
+
+type Mutation {
+  createUser(username: String!, )
+}
